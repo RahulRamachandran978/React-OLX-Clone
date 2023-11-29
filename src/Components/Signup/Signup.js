@@ -1,0 +1,65 @@
+import React, { useState, useContext } from 'react'
+import { FirebaseContext } from '../../Store/FirebaseContext'
+import {useNavigate ,Link} from 'react-router-dom'
+import OlxLogo from '../assets/Olx-logo'
+import './Signup.css'
+function Login() {
+  const navigate = useNavigate()
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [mobile, setMobile] = useState('')
+  const { firebase } = useContext(FirebaseContext)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      console.log('check');
+  
+      const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
+  
+      await result.user.updateProfile({ displayName: username });
+  
+      await firebase.firestore().collection("users").add({
+        id: result.user.uid,
+        username: username,
+        mobile: mobile
+      });
+      navigate("/olx-clone");
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+  
+
+  return (
+    <div className='sign-up'>
+      <div className="wrapper">
+        <div className="box">
+          <div className='top'>
+            <OlxLogo width="100px" height="100px" ></OlxLogo>
+            <h3>Enter your details</h3>
+          </div>
+          <form onSubmit={handleSubmit}>
+            <div className="details">
+              <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} name="name" placeholder='Full Name' />
+              <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} name='email' placeholder='Email' />
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} name='password' placeholder='Password' />
+              <input type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} name='mobile' placeholder='Mobile' />
+            </div>
+            <div className="button">
+              <button  >SIGN IN</button>
+              <Link to="/login">  <button style={{background:"white" , color:'black'}}>Already have an Account?</button></Link>
+            </div>
+          </form>
+          <div className="footer">
+            <p>All your personal details are safe with us.</p>
+
+            <p>If you continue, you are accepting <br /> OLX Terms and Conditions and Privacy Policy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Login

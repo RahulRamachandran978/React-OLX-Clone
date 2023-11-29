@@ -24,7 +24,7 @@ function Login() {
         username: username,
         mobile: mobile
       });
-      navigate("/olx-clone");
+      navigate("/");
     } catch (error) {
       console.error("Error:", error);
     }

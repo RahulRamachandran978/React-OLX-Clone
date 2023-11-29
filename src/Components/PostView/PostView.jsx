@@ -22,15 +22,15 @@ function PostView() {
     
     <div className='post-view'>
       <div className="column-1">
-        <div class="images">
+        <div className="images">
           <img src={postDetails.url} alt='postImage'/>
         </div>
-        <div class="mobile-price">
-          <div class="top">
+        <div className="mobile-price">
+          <div className="top">
             <h2>₹ {postDetails.price}</h2>
-            <div class="icon">
-              <i class="fa-solid fa-share-nodes"></i>
-              <i class="fa-regular fa-heart"></i>
+            <div className="icon">
+              <i className="fa-solid fa-share-nodes"></i>
+              <i className="fa-regular fa-heart"></i>
             </div>
           </div>
           <p>{postDetails.proName}</p>
@@ -48,11 +48,11 @@ function PostView() {
       </div>
       <div className='column-2'>
         <div className="box-1">
-          <div class="top">
+          <div className="top">
             <h2>₹ {postDetails.price}</h2>
-            <div class="icon">
-              <i class="fa-solid fa-share-nodes"></i>
-              <i class="fa-regular fa-heart"></i>
+            <div className="icon">
+              <i className="fa-solid fa-share-nodes"></i>
+              <i className="fa-regular fa-heart"></i>
             </div>
           </div>
           <p className='proname'>{postDetails.proName}</p>

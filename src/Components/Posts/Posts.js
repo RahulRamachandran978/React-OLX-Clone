@@ -35,7 +35,7 @@ function Posts() {
             <div className="post-header">
                 <h3>Recommened for you</h3>
                 <a
-                    href="/olx-clone"
+                    href="/"
                     style={{ textDecoration: "none" }}
                     onClick={(e) => {
                         e.preventDefault();

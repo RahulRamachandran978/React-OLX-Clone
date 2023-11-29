@@ -28,7 +28,7 @@ function Sell() {
                     userId : user.uid,
                     createdOn : date.toDateString()
                 })
-                navigate('/olx-clone')
+                navigate('/')
             })
         })
     }

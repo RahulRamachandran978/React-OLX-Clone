@@ -26,14 +26,14 @@ function Navbar() {
     return (
         <div className="navbar">
             <div className="logo">
-                <Link to="/olx-clone"> 
+                <Link to="/"> 
                 <OlxLogo />
                 </Link>
             </div>
             <div className="dropdown">
                 <div className="options" style={{ display: condition ? "flex" : "none" }}>
                     <div className="locations">
-                        <div class="title">
+                        <div className="title">
                             <span>POPULAR LOCATIONS</span>
                         </div>
                         <div className="list">
@@ -43,7 +43,7 @@ function Navbar() {
                                     setcondition(false);
                                 }}
                             >
-                                <span class="material-symbols-outlined">location_on</span>Kerela
+                                <span className="material-symbols-outlined">location_on</span>Kerela
                             </p>
                             <p
                                 onClick={() => {
@@ -52,7 +52,7 @@ function Navbar() {
                                 }}
                             >
                                 {" "}
-                                <span class="material-symbols-outlined">location_on</span>Chennai
+                                <span className="material-symbols-outlined">location_on</span>Chennai
                             </p>
                             <p
                                 onClick={() => {
@@ -60,7 +60,7 @@ function Navbar() {
                                     setcondition(false);
                                 }}
                             >
-                                <span class="material-symbols-outlined">location_on</span>Punjab
+                                <span className="material-symbols-outlined">location_on</span>Punjab
                             </p>
                             <p
                                 onClick={() => {
@@ -68,7 +68,7 @@ function Navbar() {
                                     setcondition(false);
                                 }}
                             >
-                                <span class="material-symbols-outlined">location_on</span>Mumbai
+                                <span className="material-symbols-outlined">location_on</span>Mumbai
                             </p>
                         </div>
                     </div>

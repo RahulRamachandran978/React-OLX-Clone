@@ -9,16 +9,15 @@ function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [mobile, setMobile] = useState('')
-  const { firebase } = useContext(FirebaseContext)
+  const { firebase } = useContext(FirebaseContext);
+  
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log('check');
-  
+      // console.log('check');
       const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
-  
       await result.user.updateProfile({ displayName: username });
-  
       await firebase.firestore().collection("users").add({
         id: result.user.uid,
         username: username,
@@ -53,7 +52,6 @@ function Login() {
           </form>
           <div className="footer">
             <p>All your personal details are safe with us.</p>
-
             <p>If you continue, you are accepting <br /> OLX Terms and Conditions and Privacy Policy</p>
           </div>
         </div>

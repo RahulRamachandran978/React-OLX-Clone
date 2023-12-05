@@ -23,7 +23,6 @@ function App() {
   return (
     <Loading>
       <div className="App">
-    
         <Post>
           <Router>
             <Routes>
